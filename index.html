@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Pages - Amissa SweetCare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet" />
+    <script>
+      // Simple carousel auto-slide
+      document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll(".carousel-item");
+        let current = 0;
+        setInterval(() => {
+          slides[current].classList.remove("opacity-100");
+          slides[current].classList.add("opacity-0");
+          current = (current + 1) % slides.length;
+          slides[current].classList.remove("opacity-0");
+          slides[current].classList.add("opacity-100");
+        }, 4000);
+      });
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+      * {
+        font-family: "Inter", sans-serif;
+      }
+
+      /* Navbar Styles */
+      .navbar-shadow {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .logo-glow {
+        filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.3));
+      }
+
+      .nav-link {
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-link::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 50%;
+        background: linear-gradient(90deg, #eab308, #22c55e);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover::before,
+      .nav-link.active::before {
+        width: 100%;
+      }
+
+      .nav-link:hover {
+        color: #16a34a;
+        transform: translateY(-2px);
+      }
+
+      .mobile-menu {
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+
+      .hamburger {
+        transition: all 0.3s ease;
+      }
+
+      .hamburger.active .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+
+      .hamburger.active .line2 {
+        opacity: 0;
+      }
+
+      .hamburger.active .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+
+      /* Animations */
+      .fade-in {
+        animation: fadeIn 0.6s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .bounce-in {
+        animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      @keyframes bounceIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.3) translateY(-20px);
+        }
+        50% {
+          opacity: 0.8;
+          transform: scale(1.05);
+        }
+        70% {
+          transform: scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      .mobile-menu-item {
+        opacity: 0;
+        transform: translateX(-30px);
+        animation: slideInLeft 0.3s ease-out forwards;
+      }
+
+      @keyframes slideInLeft {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Footer Styles */
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #f0f9ff 0%,
+          #ecfdf5 50%,
+          #fefce8 100%
+        );
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #16a34a, #22c55e, #eab308);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .social-icon {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .social-icon::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.6s;
+      }
+
+      .social-icon:hover::before {
+        left: 100%;
+      }
+
+      .social-icon:hover {
+        transform: translateY(-3px) scale(1.1);
+      }
+
+      .instagram-gradient {
+        background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      }
+
+      .tiktok-gradient {
+        background: linear-gradient(135deg, #000000, #ff0050);
+      }
+
+      .whatsapp-gradient {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+      }
+
+      .email-gradient {
+        background: linear-gradient(135deg, #ea4335, #fbbc05);
+      }
+
+      .footer-link {
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .footer-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -2px;
+        left: 0;
+        background: linear-gradient(90deg, #22c55e, #eab308);
+        transition: width 0.3s ease;
+      }
+
+      .footer-link:hover::after {
+        width: 100%;
+      }
+
+      .footer-link:hover {
+        color: #16a34a;
+        transform: translateX(5px);
+      }
+
+      .wave-animation {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .wave-animation::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #22c55e, #eab308, #22c55e);
+        animation: wave 3s linear infinite;
+      }
+
+      @keyframes wave {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      .pulse-glow {
+        animation: pulseGlow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes pulseGlow {
+        from {
+          box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+        to {
+          box-shadow: 0 0 30px rgba(234, 179, 8, 0.5);
+        }
+      }
+
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .contact-card {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .contact-card:hover {
+        background: rgba(255, 255, 255, 0.95);
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white navbar-shadow sticky top-0 z-50 fade-in">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo & Brand -->
+          <div class="flex items-center space-x-3 bounce-in">
+            <div class="logo-glow">
+              <img
+                src="assets/images/logo.png"
+                alt="Amissa SweetCare Logo"
+                class="w-10 h-10 transform hover:scale-110 transition-transform duration-300" />
+            </div>
+            <div>
+              <h1 class="text-xl font-bold gradient-text">SWEETCARE</h1>
+              <p class="text-xs text-gray-600 -mt-1">
+                Amissa Aman Manis dan Sehat
+              </p>
+            </div>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a
+                href="index.html"
+                class="nav-link active text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">
+                <i class="fas fa-home mr-1"></i>Home
+              </a>
+              <a
+                href="about.html"
+                class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">
+                <i class="fas fa-info-circle mr-1"></i>About
+              </a>
+              <a
+                href="product.html"
+                class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">
+                <i class="fas fa-box mr-1"></i>Product
+              </a>
+              <a
+                href="team.html"
+                class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">
+                <i class="fas fa-users mr-1"></i>Team
+              </a>
+              <a
+                href="gallery.html"
+                class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">
+                <i class="fas fa-images mr-1"></i>Gallery
+              </a>
+            </div>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="hidden md:block">
+            <a
+              href="https://wa.me/6281324972885"
+              class="bg-gradient-to-r from-green-500 to-yellow-400 hover:from-green-600 hover:to-yellow-500 text-white px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+              <i class="fas fa-phone mr-2"></i>Contact Us
+            </a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-btn"
+              class="hamburger text-gray-700 hover:text-green-600 focus:outline-none focus:text-green-600 p-2">
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  class="line1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16" />
+                <path
+                  class="line2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 12h16" />
+                <path
+                  class="line3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div
+        id="mobile-menu"
+        class="mobile-menu md:hidden absolute top-16 left-0 w-full bg-white shadow-xl border-t">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="index.html"
+            class="mobile-menu-item block px-3 py-3 text-base font-medium text-gray-900 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200"
+            style="animation-delay: 0.1s">
+            <i class="fas fa-home mr-3 text-yellow-500"></i>Home
+          </a>
+          <a
+            href="about.html"
+            class="mobile-menu-item block px-3 py-3 text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200"
+            style="animation-delay: 0.2s">
+            <i class="fas fa-info-circle mr-3 text-green-500"></i>About
+          </a>
+          <a
+            href="product.html"
+            class="mobile-menu-item block px-3 py-3 text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200"
+            style="animation-delay: 0.3s">
+            <i class="fas fa-box mr-3 text-yellow-500"></i>Product
+          </a>
+          <a
+            href="team.html"
+            class="mobile-menu-item block px-3 py-3 text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200"
+            style="animation-delay: 0.4s">
+            <i class="fas fa-users mr-3 text-green-500"></i>Team
+          </a>
+          <a
+            href="gallery.html"
+            class="mobile-menu-item block px-3 py-3 text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200"
+            style="animation-delay: 0.5s">
+            <i class="fas fa-images mr-3 text-yellow-500"></i>Gallery
+          </a>
+          <div class="mobile-menu-item pt-4 px-3" style="animation-delay: 0.6s">
+            <a
+              href="#contact"
+              class="block w-full bg-gradient-to-r from-green-500 to-yellow-400 hover:from-green-600 hover:to-yellow-500 text-white px-4 py-3 rounded-lg text-center font-medium transition-all duration-300 transform hover:scale-105">
+              <i class="fas fa-phone mr-2"></i>Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Carousel Hero -->
+    <section class="relative h-[90vh] w-full overflow-hidden">
+      <div class="absolute inset-0">
+        <!-- Slide 1 -->
+        <div
+          class="carousel-item absolute inset-0 opacity-100 transition-opacity duration-1000">
+          <img
+            src="assets/images/produk1.png"
+            alt="Produk Amissa"
+            class="w-full h-full object-cover" />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4">
+              Manis Alami dari Singkong Lokal
+            </h2>
+            <p class="max-w-xl mb-6 text-lg">
+              Inovasi mahasiswa Universitas Cipasung dalam program P2MW.
+            </p>
+            <a
+              href="about.html"
+              class="bg-gradient-to-r from-green-500 to-yellow-400 text-white px-8 py-3 rounded-full font-medium hover:scale-105 transition-all"
+              >Pelajari Lebih Lanjut</a
+            >
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div
+          class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000">
+          <img
+            src="assets/images/produk2.png"
+            alt="Petani Singkong"
+            class="w-full h-full object-cover" />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4">
+              Dari Petani Lokal, Untuk Indonesia
+            </h2>
+            <p class="max-w-xl mb-6 text-lg">
+              Kami bekerja sama dengan petani singkong di Kampung Cikeler,
+              Pasirsalam.
+            </p>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div
+          class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000">
+          <img
+            src="assets/images/produk3.png"
+            alt="Kolaborasi DMY Cafe"
+            class="w-full h-full object-cover" />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4">
+              Kolaborasi Manis Bersama DMY Café
+            </h2>
+            <p class="max-w-xl mb-6 text-lg">
+              Menyajikan minuman lezat dengan sentuhan pemanis alami Amissa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tentang Singkat -->
+    <section class="py-16 bg-white text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-green-700 mb-6">
+        Selamat Datang di Amissa SweetCare 🍃
+      </h2>
+      <p class="text-gray-700 max-w-3xl mx-auto mb-10 leading-relaxed">
+        Kami adalah tim mahasiswa dari
+        <strong>Universitas Cipasung</strong> yang berinovasi melalui program
+        <strong>P2MW (Program Pembinaan Mahasiswa Wirausaha)</strong> untuk
+        menghadirkan pemanis alami berbahan dasar
+        <span class="text-green-600 font-semibold">singkong lokal</span>. Amissa
+        bukan hanya tentang rasa manis, tapi juga tentang keberlanjutan,
+        kesehatan, dan pemberdayaan masyarakat.
+      </p>
+      <a
+        href="about.html"
+        class="bg-gradient-to-r from-green-500 to-yellow-400 text-white px-8 py-3 rounded-full font-medium hover:scale-105 transition-all"
+        >Kenali Kami Lebih Dekat</a
+      >
+    </section>
+
+    <!-- Keunggulan Produk -->
+    <section class="py-16 bg-gradient-to-br from-green-50 to-yellow-50">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold text-green-700 mb-12">
+          Mengapa Memilih Amissa?
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all">
+            <i class="fas fa-leaf text-green-500 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-3">Alami & Sehat</h3>
+            <p>
+              Dibuat tanpa bahan kimia tambahan, memberikan rasa manis alami
+              yang aman bagi tubuh.
+            </p>
+          </div>
+          <div
+            class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all">
+            <i class="fas fa-handshake text-yellow-500 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-3">
+              Bermitra dengan Petani Lokal
+            </h3>
+            <p>
+              Kami bekerja sama langsung dengan petani singkong di Tasikmalaya
+              untuk bahan baku terbaik.
+            </p>
+          </div>
+          <div
+            class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all">
+            <i class="fas fa-certificate text-green-600 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-3">Kualitas Terjamin</h3>
+            <p>
+              Proses produksi kami mengikuti standar kebersihan tinggi untuk
+              menghasilkan produk unggulan.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mitra & Kolaborasi -->
+    <section id="mitra" class="py-16 bg-white text-center">
+      <h2 class="text-3xl font-bold text-green-700 mb-10">Kolaborasi Kami</h2>
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+        <div
+          class="p-8 bg-green-50 rounded-2xl shadow-md hover:shadow-lg transition-all">
+          <i class="fas fa-tractor text-green-600 text-3xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Petani Singkong Cikeler</h3>
+          <p>
+            Bersama petani singkong dari Kampung Cikeler, kami membangun sistem
+            kerja sama yang berkelanjutan dan saling menguntungkan.
+          </p>
+        </div>
+        <div
+          class="p-8 bg-yellow-50 rounded-2xl shadow-md hover:shadow-lg transition-all">
+          <i class="fas fa-mug-hot text-yellow-500 text-3xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">DMY Café</h3>
+          <p>
+            DMY Café menjadi mitra bisnis yang menggunakan produk Amissa dalam
+            berbagai menu minumannya seperti es teh, jus, dan kopi.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section
+      id="kontak"
+      class="py-20 text-center bg-gradient-to-r from-green-500 to-yellow-400 text-white">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Coba Manisnya Amissa Sekarang!
+      </h2>
+      <p class="max-w-xl mx-auto mb-8">
+        Rasakan inovasi pemanis alami dari singkong lokal yang lebih sehat dan
+        alami.
+      </p>
+      <a
+        href="https://wa.me/6281324972885"
+        class="bg-white text-green-700 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all">
+        <i class="fab fa-whatsapp mr-2"></i>Hubungi Kami
+      </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="wave-animation gradient-bg relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <!-- Main Footer Content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Brand Section -->
+          <div class="fade-in-up lg:col-span-1" style="animation-delay: 0.1s">
+            <div class="flex items-center space-x-3 mb-6">
+              <div class="pulse-glow rounded-full p-2">
+                <img
+                  src="assets/images/logo.png"
+                  alt="Amissa SweetCare Logo"
+                  class="w-12 h-12 transform hover:scale-110 transition-transform duration-300" />
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold gradient-text">SWEETCARE</h3>
+                <p class="text-sm text-gray-600">Amissa Aman Manis dan Sehat</p>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Memberikan solusi pemanis alami yang aman, sehat, dan berkualitas
+              tinggi untuk hidup yang lebih baik dan lebih manis.
+            </p>
+
+            <!-- Social Media -->
+            <div class="flex space-x-4">
+              <a
+                href="https://www.instagram.com/amissa_p2mwuncip/"
+                target="_blank"
+                class="social-icon instagram-gradient w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
+                <i class="fab fa-instagram text-lg"></i>
+              </a>
+              <a
+                href="https://www.tiktok.com/@amissa_p2mwuncip?_t=ZS-906vftZ1ZYu&_r=1"
+                target="_blank"
+                class="social-icon tiktok-gradient w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
+                <i class="fab fa-tiktok text-lg"></i>
+              </a>
+              <a
+                href="https://wa.me/6281324972885"
+                target="_blank"
+                class="social-icon whatsapp-gradient w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
+                <i class="fab fa-whatsapp text-lg"></i>
+              </a>
+              <a
+                href="amissasweetcare@gmail.com"
+                class="social-icon email-gradient w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
+                <i class="fas fa-envelope text-lg"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="fade-in-up" style="animation-delay: 0.2s">
+            <h4 class="text-lg font-semibold text-gray-800 mb-6">
+              Quick Links
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="index.html"
+                  class="footer-link text-gray-600 hover:text-green-600 flex items-center">
+                  <i class="fas fa-home mr-2 text-yellow-500"></i>Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="footer-link text-gray-600 hover:text-green-600 flex items-center">
+                  <i class="fas fa-info-circle mr-2 text-green-500"></i>About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="product.html"
+                  class="footer-link text-gray-600 hover:text-green-600 flex items-center">
+                  <i class="fas fa-box mr-2 text-yellow-500"></i>Products
+                </a>
+              </li>
+              <li>
+                <a
+                  href="team.html"
+                  class="footer-link text-gray-600 hover:text-green-600 flex items-center">
+                  <i class="fas fa-users mr-2 text-green-500"></i>Our Team
+                </a>
+              </li>
+              <li>
+                <a
+                  href="gallery.html"
+                  class="footer-link text-gray-600 hover:text-green-600 flex items-center">
+                  <i class="fas fa-images mr-2 text-yellow-500"></i>Gallery
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="fade-in-up" style="animation-delay: 0.3s">
+            <h4 class="text-lg font-semibold text-gray-800 mb-6">
+              Contact Info
+            </h4>
+            <div class="space-y-4">
+              <div
+                class="contact-card p-4 rounded-lg transition-all duration-300">
+                <div class="flex items-start">
+                  <div class="bg-green-100 p-2 rounded-lg mr-3">
+                    <i class="fas fa-map-marker-alt text-green-600"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium text-gray-800">Alamat</p>
+                    <p class="text-gray-600 text-sm">
+                      Jl. Borolong Ciawi-Singaparna <br />Tasikmalaya, Jawa
+                      Barat Indonesia
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="contact-card p-4 rounded-lg transition-all duration-300">
+                <div class="flex items-center">
+                  <div class="bg-yellow-100 p-2 rounded-lg mr-3">
+                    <i class="fas fa-phone text-yellow-600"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium text-gray-800">Telepon</p>
+                    <p class="text-gray-600 text-sm">+62 812-2497-2885</p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="contact-card p-4 rounded-lg transition-all duration-300">
+                <div class="flex items-center">
+                  <div class="bg-green-100 p-2 rounded-lg mr-3">
+                    <i class="fas fa-envelope text-green-600"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium text-gray-800">Email</p>
+                    <p class="text-gray-600 text-sm">
+                      amissasweetcare@gmail.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Newsletter & Info -->
+          <div class="fade-in-up" style="animation-delay: 0.4s">
+            <h4 class="text-lg font-semibold text-gray-800 mb-6">
+              Stay Connected
+            </h4>
+
+            <!-- Newsletter -->
+            <div class="mb-6">
+              <p class="text-gray-600 mb-4 text-sm">
+                Dapatkan update produk dan tips kesehatan terbaru!
+              </p>
+              <div class="flex">
+                <input
+                  type="email"
+                  placeholder="Email Anda..."
+                  class="flex-1 px-4 py-2 text-sm border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" />
+                <button
+                  class="bg-gradient-to-r from-green-500 to-yellow-400 hover:from-green-600 hover:to-yellow-500 text-white px-4 py-2 rounded-r-lg text-sm font-medium transition-all duration-300 transform hover:scale-105">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="bg-white bg-opacity-60 rounded-lg p-4">
+              <h5 class="font-medium text-gray-800 mb-3 flex items-center">
+                <i class="fas fa-clock mr-2 text-green-600"></i>Jam Operasional
+              </h5>
+              <div class="text-sm text-gray-600 space-y-1">
+                <p>Senin - Jumat: 08:00 - 17:00</p>
+                <p>Sabtu: 09:00 - 15:00</p>
+                <p>Minggu: Tutup</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="border-t border-gray-200 mt-12 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="text-gray-600 text-sm mb-4 md:mb-0">
+              <p>
+                &copy; 2025
+                <span class="gradient-text font-medium">Amissa SweetCare</span>.
+                All rights reserved.
+              </p>
+            </div>
+            <div class="flex space-x-6 text-sm">
+              <a
+                href="#privacy"
+                class="footer-link text-gray-600 hover:text-green-600"
+                >Privacy Policy</a
+              >
+              <a
+                href="#terms"
+                class="footer-link text-gray-600 hover:text-green-600"
+                >Terms of Service</a
+              >
+              <a
+                href="#sitemap"
+                class="footer-link text-gray-600 hover:text-green-600"
+                >Sitemap</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back to Top Button -->
+      <button
+        id="back-to-top"
+        class="fixed bottom-8 right-8 bg-gradient-to-r from-green-500 to-yellow-400 text-white p-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        let isMenuOpen = false;
+
+        // Toggle mobile menu
+        mobileMenuBtn.addEventListener("click", function () {
+          isMenuOpen = !isMenuOpen;
+
+          if (isMenuOpen) {
+            mobileMenu.classList.add("active");
+            mobileMenuBtn.classList.add("active");
+          } else {
+            mobileMenu.classList.remove("active");
+            mobileMenuBtn.classList.remove("active");
+          }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", function (e) {
+          if (
+            !mobileMenuBtn.contains(e.target) &&
+            !mobileMenu.contains(e.target)
+          ) {
+            if (isMenuOpen) {
+              mobileMenu.classList.remove("active");
+              mobileMenuBtn.classList.remove("active");
+              isMenuOpen = false;
+            }
+          }
+        });
+
+        // Add active class to current page
+        const currentPage =
+          window.location.pathname.split("/").pop() || "index.html";
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        navLinks.forEach((link) => {
+          const href = link.getAttribute("href");
+          if (
+            href === currentPage ||
+            (currentPage === "" && href === "index.html")
+          ) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Footer Amissa SweetCare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+      * {
+        font-family: "Inter", sans-serif;
+      }
+
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #f0f9ff 0%,
+          #ecfdf5 50%,
+          #fefce8 100%
+        );
+      }
+
+      .social-icon {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .social-icon::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.6s;
+      }
+
+      .social-icon:hover::before {
+        left: 100%;
+      }
+
+      .social-icon:hover {
+        transform: translateY(-3px) scale(1.1);
+      }
+
+      .instagram-gradient {
+        background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      }
+
+      .tiktok-gradient {
+        background: linear-gradient(135deg, #000000, #ff0050);
+      }
+
+      .whatsapp-gradient {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+      }
+
+      .email-gradient {
+        background: linear-gradient(135deg, #ea4335, #fbbc05);
+      }
+
+      .footer-link {
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .footer-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -2px;
+        left: 0;
+        background: linear-gradient(90deg, #22c55e, #eab308);
+        transition: width 0.3s ease;
+      }
+
+      .footer-link:hover::after {
+        width: 100%;
+      }
+
+      .footer-link:hover {
+        color: #16a34a;
+        transform: translateX(5px);
+      }
+
+      .wave-animation {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .wave-animation::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #22c55e, #eab308, #22c55e);
+        animation: wave 3s linear infinite;
+      }
+
+      @keyframes wave {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      .pulse-glow {
+        animation: pulseGlow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes pulseGlow {
+        from {
+          box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+        to {
+          box-shadow: 0 0 30px rgba(234, 179, 8, 0.5);
+        }
+      }
+
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .contact-card {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .contact-card:hover {
+        background: rgba(255, 255, 255, 0.95);
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #16a34a, #22c55e, #eab308);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Demo content untuk menunjukkan footer -->
+    <div class="min-h-screen bg-gradient-to-br from-green-50 to-yellow-50 p-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-gray-800 mb-6">
+          Preview Footer Amissa SweetCare
+        </h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Scroll ke bawah untuk melihat footer yang lengkap dan interaktif
+        </p>
+        <div
+          class="h-96 bg-white rounded-xl shadow-lg flex items-center justify-center">
+          <p class="text-gray-500">Content Area - Footer ada di bawah</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="wave-animation gradient-bg relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <!-- Main Footer Content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Brand Section -->
+          <div class="fade-in-up lg:col-span-1" style="animation-delay: 0.1s">
+            <div class="flex items-center space-x-3 mb-6">
+              <div class="pulse-glow rounded-full p-2">
+                <svg
+                  width="50"
+                  height="50"
+                  viewBox="0 0 100 100"
+                  class="transform hover:scale-110 transition-transform duration-300">
+                  <!-- Droplet shape -->
+                  <path
+                    d="M50 10 C35 25, 25 35, 25 50 C25 65, 35 75, 50 75 C65 75, 75 65, 75 50 C75 35, 65 25, 50 10 Z"
+                    fill="url(#goldGradient)"
+                    stroke="url(#goldGradient)"
+                    stroke-width="3" />
+                  <!-- Leaf inside -->
+                  <ellipse
+                    cx="50"
+                    cy="45"
+                    rx="12"
+                    ry="18"
+                    fill="url(#greenGradient)"
+                    transform="rotate(-10 50 45)" />
+                  <path
+                    d="M50 35 Q45 45 50 55"
+                    stroke="#166534"
+                    stroke-width="1.5"
+                    fill="none" />
+                  <!-- Small curl -->
+                  <path
+                    d="M58 55 Q62 58 65 62"
+                    stroke="url(#goldGradient)"
+                    stroke-width="2.5"
+                    fill="none"
+                    stroke-linecap="round" />
+
+                  <defs>
+                    <linearGradient
+                      id="goldGradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%">
+                      <stop offset="0%" style="stop-color: #fbbf24" />
+                      <stop offset="100%" style="stop-color: #eab308" />
+                    </linearGradient>
+                    <linearGradient
+                      id="greenGradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%">
+                      <stop offset="0%" style="stop-color: #22c55e" />
+                      <stop offset="100%" style="stop-color: #16a34a" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold gradient-text">SWEETCARE</h3>
+                <p class="text-sm text-gray-600">Amissa Aman Manis dan Sehat</p>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Memberikan solusi pemanis alami yang aman, sehat, dan berkualitas
+              tinggi untuk hidup yang lebih baik dan lebih manis.
+            </p>
+
+            <!-- Social Media -->
+            <div class="flex space-x-4">
+              <a
+                href="https://instagram.com/amissa.sweetcare"
+                target="_blank"
+                class="social-icon instagram-gradient w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
+                <i class="fab fa-instagram text-lg"></i>
+              </a>
+              <a
+                href="https://tiktok.com/@amissa.sweetcare"
+                target="_blank"
+                class="social-icon tiktok-gradient w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
+                <i class="fab fa-tiktok text-lg"></i>
+              </a>
+              <a
+                href="https://wa.me/6281234567890"
+                target="_blank"
+                class="social-icon whatsapp-gradient w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
+                <i class="fab fa-whatsapp text-lg"></i>
+              </a>
+              <a
+                href="mailto:info@amissasweetcare.com"
+                class="social-icon email-gradient w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
+                <i class="fas fa-envelope text-lg"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="fade-in-up" style="animation-delay: 0.2s">
+            <h4 class="text-lg font-semibold text-gray-800 mb-6">
+              Quick Links
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="index.html"
+                  class="footer-link text-gray-600 hover:text-green-600 flex items-center">
+                  <i class="fas fa-home mr-2 text-yellow-500"></i>Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="footer-link text-gray-600 hover:text-green-600 flex items-center">
+                  <i class="fas fa-info-circle mr-2 text-green-500"></i>About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="product.html"
+                  class="footer-link text-gray-600 hover:text-green-600 flex items-center">
+                  <i class="fas fa-box mr-2 text-yellow-500"></i>Products
+                </a>
+              </li>
+              <li>
+                <a
+                  href="team.html"
+                  class="footer-link text-gray-600 hover:text-green-600 flex items-center">
+                  <i class="fas fa-users mr-2 text-green-500"></i>Our Team
+                </a>
+              </li>
+              <li>
+                <a
+                  href="gallery.html"
+                  class="footer-link text-gray-600 hover:text-green-600 flex items-center">
+                  <i class="fas fa-images mr-2 text-yellow-500"></i>Gallery
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="fade-in-up" style="animation-delay: 0.3s">
+            <h4 class="text-lg font-semibold text-gray-800 mb-6">
+              Contact Info
+            </h4>
+            <div class="space-y-4">
+              <div
+                class="contact-card p-4 rounded-lg transition-all duration-300">
+                <div class="flex items-start">
+                  <div class="bg-green-100 p-2 rounded-lg mr-3">
+                    <i class="fas fa-map-marker-alt text-green-600"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium text-gray-800">Alamat</p>
+                    <p class="text-gray-600 text-sm">
+                      Jl. Setiabudi No. 123<br />Bandung, Jawa Barat 40154
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="contact-card p-4 rounded-lg transition-all duration-300">
+                <div class="flex items-center">
+                  <div class="bg-yellow-100 p-2 rounded-lg mr-3">
+                    <i class="fas fa-phone text-yellow-600"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium text-gray-800">Telepon</p>
+                    <p class="text-gray-600 text-sm">+62 812-3456-7890</p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="contact-card p-4 rounded-lg transition-all duration-300">
+                <div class="flex items-center">
+                  <div class="bg-green-100 p-2 rounded-lg mr-3">
+                    <i class="fas fa-envelope text-green-600"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium text-gray-800">Email</p>
+                    <p class="text-gray-600 text-sm">
+                      info@amissasweetcare.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Newsletter & Info -->
+          <div class="fade-in-up" style="animation-delay: 0.4s">
+            <h4 class="text-lg font-semibold text-gray-800 mb-6">
+              Stay Connected
+            </h4>
+
+            <!-- Newsletter -->
+            <div class="mb-6">
+              <p class="text-gray-600 mb-4 text-sm">
+                Dapatkan update produk dan tips kesehatan terbaru!
+              </p>
+              <div class="flex">
+                <input
+                  type="email"
+                  placeholder="Email Anda..."
+                  class="flex-1 px-4 py-2 text-sm border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" />
+                <button
+                  class="bg-gradient-to-r from-green-500 to-yellow-400 hover:from-green-600 hover:to-yellow-500 text-white px-4 py-2 rounded-r-lg text-sm font-medium transition-all duration-300 transform hover:scale-105">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="bg-white bg-opacity-60 rounded-lg p-4">
+              <h5 class="font-medium text-gray-800 mb-3 flex items-center">
+                <i class="fas fa-clock mr-2 text-green-600"></i>Jam Operasional
+              </h5>
+              <div class="text-sm text-gray-600 space-y-1">
+                <p>Senin - Jumat: 08:00 - 17:00</p>
+                <p>Sabtu: 09:00 - 15:00</p>
+                <p>Minggu: Tutup</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="border-t border-gray-200 mt-12 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="text-gray-600 text-sm mb-4 md:mb-0">
+              <p>
+                &copy; 2025
+                <span class="gradient-text font-medium">Amissa SweetCare</span>.
+                All rights reserved.
+              </p>
+            </div>
+            <div class="flex space-x-6 text-sm">
+              <a
+                href="#privacy"
+                class="footer-link text-gray-600 hover:text-green-600"
+                >Privacy Policy</a
+              >
+              <a
+                href="#terms"
+                class="footer-link text-gray-600 hover:text-green-600"
+                >Terms of Service</a
+              >
+              <a
+                href="#sitemap"
+                class="footer-link text-gray-600 hover:text-green-600"
+                >Sitemap</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back to Top Button -->
+      <button
+        id="back-to-top"
+        class="fixed bottom-8 right-8 bg-gradient-to-r from-green-500 to-yellow-400 text-white p-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Back to top button
+        const backToTop = document.getElementById("back-to-top");
+
+        window.addEventListener("scroll", function () {
+          if (window.pageYOffset > 300) {
+            backToTop.classList.remove("opacity-0", "invisible");
+            backToTop.classList.add("opacity-100", "visible");
+          } else {
+            backToTop.classList.add("opacity-0", "invisible");
+            backToTop.classList.remove("opacity-100", "visible");
+          }
+        });
+
+        backToTop.addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+        // Newsletter subscription
+        const newsletterForm = document
+          .querySelector('input[type="email"]')
+          .closest("div")
+          .querySelector("button");
+        newsletterForm.addEventListener("click", function () {
+          const email = this.parentElement.querySelector(
+            'input[type="email"]'
+          ).value;
+          if (email) {
+            // Simulate subscription
+            this.innerHTML = '<i class="fas fa-check"></i>';
+            this.classList.add("bg-green-500");
+            setTimeout(() => {
+              this.innerHTML = '<i class="fas fa-paper-plane"></i>';
+              this.classList.remove("bg-green-500");
+              this.parentElement.querySelector('input[type="email"]').value =
+                "";
+            }, 2000);
+          }
+        });
+
+        // Social media click tracking (for analytics)
+        const socialLinks = document.querySelectorAll(".social-icon");
+        socialLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            const platform = this.querySelector("i").classList[1].split("-")[1];
+            console.log(`Clicked: ${platform}`);
+            // Here you can add Google Analytics or other tracking
+          });
+        });
+
+        // Contact card hover effects
+        const contactCards = document.querySelectorAll(".contact-card");
+        contactCards.forEach((card) => {
+          card.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-5px) scale(1.02)";
+          });
+
+          card.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0) scale(1)";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

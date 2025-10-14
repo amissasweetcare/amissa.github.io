@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Pages - Amissa SweetCare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+      * {
+        font-family: "Inter", sans-serif;
+      }
+
+      /* Navbar Styles */
+      .navbar-shadow {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .logo-glow {
+        filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.3));
+      }
+
+      .nav-link {
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-link::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 50%;
+        background: linear-gradient(90deg, #eab308, #22c55e);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover::before,
+      .nav-link.active::before {
+        width: 100%;
+      }
+
+      .nav-link:hover {
+        color: #16a34a;
+        transform: translateY(-2px);
+      }
+
+      .mobile-menu {
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+
+      .hamburger {
+        transition: all 0.3s ease;
+      }
+
+      .hamburger.active .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+
+      .hamburger.active .line2 {
+        opacity: 0;
+      }
+
+      .hamburger.active .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+
+      /* Animations */
+      .fade-in {
+        animation: fadeIn 0.6s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .bounce-in {
+        animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      @keyframes bounceIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.3) translateY(-20px);
+        }
+        50% {
+          opacity: 0.8;
+          transform: scale(1.05);
+        }
+        70% {
+          transform: scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      .mobile-menu-item {
+        opacity: 0;
+        transform: translateX(-30px);
+        animation: slideInLeft 0.3s ease-out forwards;
+      }
+
+      @keyframes slideInLeft {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Footer Styles */
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #f0f9ff 0%,
+          #ecfdf5 50%,
+          #fefce8 100%
+        );
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #16a34a, #22c55e, #eab308);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .social-icon {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .social-icon::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.6s;
+      }
+
+      .social-icon:hover::before {
+        left: 100%;
+      }
+
+      .social-icon:hover {
+        transform: translateY(-3px) scale(1.1);
+      }
+
+      .instagram-gradient {
+        background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      }
+
+      .tiktok-gradient {
+        background: linear-gradient(135deg, #000000, #ff0050);
+      }
+
+      .whatsapp-gradient {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+      }
+
+      .email-gradient {
+        background: linear-gradient(135deg, #ea4335, #fbbc05);
+      }
+
+      .footer-link {
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .footer-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -2px;
+        left: 0;
+        background: linear-gradient(90deg, #22c55e, #eab308);
+        transition: width 0.3s ease;
+      }
+
+      .footer-link:hover::after {
+        width: 100%;
+      }
+
+      .footer-link:hover {
+        color: #16a34a;
+        transform: translateX(5px);
+      }
+
+      .wave-animation {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .wave-animation::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #22c55e, #eab308, #22c55e);
+        animation: wave 3s linear infinite;
+      }
+
+      @keyframes wave {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      .pulse-glow {
+        animation: pulseGlow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes pulseGlow {
+        from {
+          box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+        to {
+          box-shadow: 0 0 30px rgba(234, 179, 8, 0.5);
+        }
+      }
+
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .contact-card {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .contact-card:hover {
+        background: rgba(255, 255, 255, 0.95);
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 1s ease;
+      }
+      .fade-in.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white navbar-shadow sticky top-0 z-50 fade-in">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo & Brand -->
+          <div class="flex items-center space-x-3 bounce-in">
+            <div class="logo-glow">
+              <img
+                src="assets/images/logo.png"
+                alt="Amissa SweetCare Logo"
+                class="w-10 h-10 transform hover:scale-110 transition-transform duration-300" />
+            </div>
+            <div>
+              <h1 class="text-xl font-bold gradient-text">SWEETCARE</h1>
+              <p class="text-xs text-gray-600 -mt-1">
+                Amissa Aman Manis dan Sehat
+              </p>
+            </div>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a
+                href="index.html"
+                class="nav-link active text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">
+                <i class="fas fa-home mr-1"></i>Home
+              </a>
+              <a
+                href="about.html"
+                class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">
+                <i class="fas fa-info-circle mr-1"></i>About
+              </a>
+              <a
+                href="product.html"
+                class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">
+                <i class="fas fa-box mr-1"></i>Product
+              </a>
+              <a
+                href="team.html"
+                class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">
+                <i class="fas fa-users mr-1"></i>Team
+              </a>
+              <a
+                href="gallery.html"
+                class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">
+                <i class="fas fa-images mr-1"></i>Gallery
+              </a>
+            </div>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="hidden md:block">
+            <a
+              href="https://wa.me/6281324972885"
+              class="bg-gradient-to-r from-green-500 to-yellow-400 hover:from-green-600 hover:to-yellow-500 text-white px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+              <i class="fas fa-phone mr-2"></i>Contact Us
+            </a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-btn"
+              class="hamburger text-gray-700 hover:text-green-600 focus:outline-none focus:text-green-600 p-2">
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  class="line1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16" />
+                <path
+                  class="line2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 12h16" />
+                <path
+                  class="line3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div
+        id="mobile-menu"
+        class="mobile-menu md:hidden absolute top-16 left-0 w-full bg-white shadow-xl border-t">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="index.html"
+            class="mobile-menu-item block px-3 py-3 text-base font-medium text-gray-900 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200"
+            style="animation-delay: 0.1s">
+            <i class="fas fa-home mr-3 text-yellow-500"></i>Home
+          </a>
+          <a
+            href="about.html"
+            class="mobile-menu-item block px-3 py-3 text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200"
+            style="animation-delay: 0.2s">
+            <i class="fas fa-info-circle mr-3 text-green-500"></i>About
+          </a>
+          <a
+            href="product.html"
+            class="mobile-menu-item block px-3 py-3 text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200"
+            style="animation-delay: 0.3s">
+            <i class="fas fa-box mr-3 text-yellow-500"></i>Product
+          </a>
+          <a
+            href="team.html"
+            class="mobile-menu-item block px-3 py-3 text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200"
+            style="animation-delay: 0.4s">
+            <i class="fas fa-users mr-3 text-green-500"></i>Team
+          </a>
+          <a
+            href="gallery.html"
+            class="mobile-menu-item block px-3 py-3 text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200"
+            style="animation-delay: 0.5s">
+            <i class="fas fa-images mr-3 text-yellow-500"></i>Gallery
+          </a>
+          <div class="mobile-menu-item pt-4 px-3" style="animation-delay: 0.6s">
+            <a
+              href="#contact"
+              class="block w-full bg-gradient-to-r from-green-500 to-yellow-400 hover:from-green-600 hover:to-yellow-500 text-white px-4 py-3 rounded-lg text-center font-medium transition-all duration-300 transform hover:scale-105">
+              <i class="fas fa-phone mr-2"></i>Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="text-center py-20 bg-gradient-to-r from-green-600 to-yellow-500 text-white">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        Tim Hebat di Balik <span class="italic">Amissa SweetCare</span>
+      </h1>
+      <p class="text-lg max-w-2xl mx-auto">
+        Kami percaya bahwa inovasi terbaik lahir dari kerja sama, semangat, dan
+        keyakinan. Inilah wajah-wajah yang bekerja tanpa lelah untuk
+        menghadirkan pemanis sehat berbasis singkong.
+      </p>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Dea -->
+        <div
+          class="team-card bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 fade-in">
+          <img
+            src="assets/team/dea.jpg"
+            alt="Dea Dewi Damayanti"
+            class="w-40 h-40 mx-auto rounded-full object-cover border-4 border-green-500 mb-4" />
+          <h3 class="text-xl font-bold text-gray-800">Dea Dewi Damayanti</h3>
+          <p class="text-green-600 font-medium">Ketua Tim</p>
+          <p class="text-sm text-gray-600 mt-2">
+            Prodi Rekayasa Perangkat Lunak
+          </p>
+          <p class="mt-4 text-gray-500 text-sm italic">
+            "Memimpin dengan hati, menginspirasi dengan aksi."
+          </p>
+          <button
+            onclick="toggleStory(this)"
+            class="mt-6 px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition">
+            Baca Cerita
+          </button>
+          <div class="story hidden mt-4 text-gray-700 text-sm">
+            Dea adalah motor penggerak tim. Ia memastikan visi Amissa tetap on
+            track, mengatur strategi, dan menjaga kekompakan anggota agar terus
+            melangkah bersama.
+          </div>
+        </div>
+
+        <!-- Sutiawan -->
+        <div
+          class="team-card bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 fade-in">
+          <img
+            src="assets/team/djpp.jpg"
+            alt="Sutiawan Djody"
+            class="w-40 h-40 mx-auto rounded-full object-cover border-4 border-yellow-500 mb-4" />
+          <h3 class="text-xl font-bold text-gray-800">Sutiawan Djody</h3>
+          <p class="text-green-600 font-medium">Anggota 1</p>
+          <p class="text-sm text-gray-600 mt-2">
+            Prodi Rekayasa Perangkat Lunak
+          </p>
+          <p class="mt-4 text-gray-500 text-sm italic">
+            "Kreativitas adalah kunci untuk menciptakan inovasi."
+          </p>
+          <button
+            onclick="toggleStory(this)"
+            class="mt-6 px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition">
+            Baca Cerita
+          </button>
+          <div class="story hidden mt-4 text-gray-700 text-sm">
+            Sutiawan adalah otak kreatif di balik branding dan teknologi Amissa.
+            Dengan ide-idenya, produk ini tampil modern, relevan, dan mudah
+            dikenali.
+          </div>
+        </div>
+
+        <!-- Wulan -->
+        <div
+          class="team-card bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 fade-in">
+          <img
+            src="assets/team/wulan.jpg"
+            alt="Wulan Jahra Nurjanah"
+            class="w-40 h-40 mx-auto rounded-full object-cover border-4 border-green-500 mb-4" />
+          <h3 class="text-xl font-bold text-gray-800">Wulan Jahra Nurjanah</h3>
+          <p class="text-green-600 font-medium">Anggota 2</p>
+          <p class="text-sm text-gray-600 mt-2">Prodi Manajemen</p>
+          <p class="mt-4 text-gray-500 text-sm italic">
+            "Manajemen yang baik melahirkan hasil yang maksimal."
+          </p>
+          <button
+            onclick="toggleStory(this)"
+            class="mt-6 px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition">
+            Baca Cerita
+          </button>
+          <div class="story hidden mt-4 text-gray-700 text-sm">
+            Wulan menjadi jembatan manajemen dan strategi pemasaran. Ia
+            memastikan Amissa bukan hanya sehat, tapi juga diminati banyak
+            orang.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Spirit -->
+    <section class="bg-white py-16">
+      <div class="max-w-4xl mx-auto text-center px-6 fade-in">
+        <h2 class="text-3xl font-bold mb-4 text-gray-800">Semangat Kami</h2>
+        <p class="text-gray-600">
+          Bersama, kami percaya bahwa
+          <span class="text-green-600 font-semibold">kerja tim</span>,
+          <span class="text-yellow-500 font-semibold">komitmen</span>, dan
+          <span class="text-green-600 font-semibold">inovasi</span>
+          adalah pondasi untuk membawa <strong>Amissa SweetCare</strong> menjadi
+          brand yang dikenal luas dan memberi manfaat nyata bagi masyarakat.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="wave-animation gradient-bg relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <!-- Main Footer Content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Brand Section -->
+          <div class="fade-in-up lg:col-span-1" style="animation-delay: 0.1s">
+            <div class="flex items-center space-x-3 mb-6">
+              <div class="pulse-glow rounded-full p-2">
+                <img
+                  src="assets/images/logo.png"
+                  alt="Amissa SweetCare Logo"
+                  class="w-12 h-12 transform hover:scale-110 transition-transform duration-300" />
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold gradient-text">SWEETCARE</h3>
+                <p class="text-sm text-gray-600">Amissa Aman Manis dan Sehat</p>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Memberikan solusi pemanis alami yang aman, sehat, dan berkualitas
+              tinggi untuk hidup yang lebih baik dan lebih manis.
+            </p>
+
+            <!-- Social Media -->
+            <div class="flex space-x-4">
+              <a
+                href="https://www.instagram.com/amissa_p2mwuncip/"
+                target="_blank"
+                class="social-icon instagram-gradient w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
+                <i class="fab fa-instagram text-lg"></i>
+              </a>
+              <a
+                href="https://www.tiktok.com/@amissa_p2mwuncip?_t=ZS-906vftZ1ZYu&_r=1"
+                target="_blank"
+                class="social-icon tiktok-gradient w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
+                <i class="fab fa-tiktok text-lg"></i>
+              </a>
+              <a
+                href="https://wa.me/6281324972885"
+                target="_blank"
+                class="social-icon whatsapp-gradient w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
+                <i class="fab fa-whatsapp text-lg"></i>
+              </a>
+              <a
+                href="amissasweetcare@gmail.com"
+                class="social-icon email-gradient w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
+                <i class="fas fa-envelope text-lg"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="fade-in-up" style="animation-delay: 0.2s">
+            <h4 class="text-lg font-semibold text-gray-800 mb-6">
+              Quick Links
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="index.html"
+                  class="footer-link text-gray-600 hover:text-green-600 flex items-center">
+                  <i class="fas fa-home mr-2 text-yellow-500"></i>Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="footer-link text-gray-600 hover:text-green-600 flex items-center">
+                  <i class="fas fa-info-circle mr-2 text-green-500"></i>About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="product.html"
+                  class="footer-link text-gray-600 hover:text-green-600 flex items-center">
+                  <i class="fas fa-box mr-2 text-yellow-500"></i>Products
+                </a>
+              </li>
+              <li>
+                <a
+                  href="team.html"
+                  class="footer-link text-gray-600 hover:text-green-600 flex items-center">
+                  <i class="fas fa-users mr-2 text-green-500"></i>Our Team
+                </a>
+              </li>
+              <li>
+                <a
+                  href="gallery.html"
+                  class="footer-link text-gray-600 hover:text-green-600 flex items-center">
+                  <i class="fas fa-images mr-2 text-yellow-500"></i>Gallery
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="fade-in-up" style="animation-delay: 0.3s">
+            <h4 class="text-lg font-semibold text-gray-800 mb-6">
+              Contact Info
+            </h4>
+            <div class="space-y-4">
+              <div
+                class="contact-card p-4 rounded-lg transition-all duration-300">
+                <div class="flex items-start">
+                  <div class="bg-green-100 p-2 rounded-lg mr-3">
+                    <i class="fas fa-map-marker-alt text-green-600"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium text-gray-800">Alamat</p>
+                    <p class="text-gray-600 text-sm">
+                      Jl. Borolong Ciawi-Singaparna <br />Tasikmalaya, Jawa
+                      Barat Indonesia
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="contact-card p-4 rounded-lg transition-all duration-300">
+                <div class="flex items-center">
+                  <div class="bg-yellow-100 p-2 rounded-lg mr-3">
+                    <i class="fas fa-phone text-yellow-600"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium text-gray-800">Telepon</p>
+                    <p class="text-gray-600 text-sm">+62 812-2497-2885</p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="contact-card p-4 rounded-lg transition-all duration-300">
+                <div class="flex items-center">
+                  <div class="bg-green-100 p-2 rounded-lg mr-3">
+                    <i class="fas fa-envelope text-green-600"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium text-gray-800">Email</p>
+                    <p class="text-gray-600 text-sm">
+                      amissasweetcare@gmail.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Newsletter & Info -->
+          <div class="fade-in-up" style="animation-delay: 0.4s">
+            <h4 class="text-lg font-semibold text-gray-800 mb-6">
+              Stay Connected
+            </h4>
+
+            <!-- Newsletter -->
+            <div class="mb-6">
+              <p class="text-gray-600 mb-4 text-sm">
+                Dapatkan update produk dan tips kesehatan terbaru!
+              </p>
+              <div class="flex">
+                <input
+                  type="email"
+                  placeholder="Email Anda..."
+                  class="flex-1 px-4 py-2 text-sm border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" />
+                <button
+                  class="bg-gradient-to-r from-green-500 to-yellow-400 hover:from-green-600 hover:to-yellow-500 text-white px-4 py-2 rounded-r-lg text-sm font-medium transition-all duration-300 transform hover:scale-105">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="bg-white bg-opacity-60 rounded-lg p-4">
+              <h5 class="font-medium text-gray-800 mb-3 flex items-center">
+                <i class="fas fa-clock mr-2 text-green-600"></i>Jam Operasional
+              </h5>
+              <div class="text-sm text-gray-600 space-y-1">
+                <p>Senin - Jumat: 08:00 - 17:00</p>
+                <p>Sabtu: 09:00 - 15:00</p>
+                <p>Minggu: Tutup</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="border-t border-gray-200 mt-12 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="text-gray-600 text-sm mb-4 md:mb-0">
+              <p>
+                &copy; 2025
+                <span class="gradient-text font-medium">Amissa SweetCare</span>.
+                All rights reserved.
+              </p>
+            </div>
+            <div class="flex space-x-6 text-sm">
+              <a
+                href="#privacy"
+                class="footer-link text-gray-600 hover:text-green-600"
+                >Privacy Policy</a
+              >
+              <a
+                href="#terms"
+                class="footer-link text-gray-600 hover:text-green-600"
+                >Terms of Service</a
+              >
+              <a
+                href="#sitemap"
+                class="footer-link text-gray-600 hover:text-green-600"
+                >Sitemap</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back to Top Button -->
+      <button
+        id="back-to-top"
+        class="fixed bottom-8 right-8 bg-gradient-to-r from-green-500 to-yellow-400 text-white p-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        let isMenuOpen = false;
+
+        // Toggle mobile menu
+        mobileMenuBtn.addEventListener("click", function () {
+          isMenuOpen = !isMenuOpen;
+
+          if (isMenuOpen) {
+            mobileMenu.classList.add("active");
+            mobileMenuBtn.classList.add("active");
+          } else {
+            mobileMenu.classList.remove("active");
+            mobileMenuBtn.classList.remove("active");
+          }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", function (e) {
+          if (
+            !mobileMenuBtn.contains(e.target) &&
+            !mobileMenu.contains(e.target)
+          ) {
+            if (isMenuOpen) {
+              mobileMenu.classList.remove("active");
+              mobileMenuBtn.classList.remove("active");
+              isMenuOpen = false;
+            }
+          }
+        });
+
+        // Add active class to current page
+        const currentPage =
+          window.location.pathname.split("/").pop() || "index.html";
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        navLinks.forEach((link) => {
+          const href = link.getAttribute("href");
+          if (
+            href === currentPage ||
+            (currentPage === "" && href === "index.html")
+          ) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
+        });
+      });
+      // Animasi muncul saat scroll
+      const fadeEls = document.querySelectorAll(".fade-in");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      fadeEls.forEach((el) => observer.observe(el));
+
+      // Toggle cerita anggota
+      function toggleStory(btn) {
+        const story = btn.nextElementSibling;
+        story.classList.toggle("hidden");
+        btn.textContent = story.classList.contains("hidden")
+          ? "Baca Cerita"
+          : "Tutup Cerita";
+      }
+    </script>
+  </body>
+</html>
